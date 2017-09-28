@@ -5,6 +5,8 @@
  */
 package fr.ufrsciencestech.panier;
 
+import javax.swing.JComboBox;
+
 /**
  *
  * @author nl773507
@@ -12,9 +14,13 @@ package fr.ufrsciencestech.panier;
 public class Visu extends javax.swing.JFrame {
 
     private Panier panier;
+    private String[] export;
+    private JComboBox jcombo;
     
     public Visu() {
         initComponents();
+        jcombo = new JComboBox();
+        this.jPanel4.add(jcombo);
         init();
     }
 
@@ -22,17 +28,21 @@ public class Visu extends javax.swing.JFrame {
     {
         this.setSize(800, 600);
         panier = new Panier(3);
+        export = new String[4];
+        export[0] = "France";
+        export[1] = "Espagne";
+        export[2] = "Suede";
+        export[3] = "Martinique";
+        for(int i=0 ; i<export.length ; i++)
+        {
+            this.jcombo.addItem(export[i]);
+        }
         afficher();
     }
     
     private void genererFruit()
     {
         double price = (double)Math.random()*10;
-        String[] export = new String[4];
-        export[0] = "France";
-        export[1] = "Espagne";
-        export[2] = "Suede";
-        export[3] = "Martinique";
         
         String origin = export[(int)(Math.random()*export.length)];
         panier.add(new Orange(price, origin));
@@ -43,6 +53,11 @@ public class Visu extends javax.swing.JFrame {
     {
         int index = (int)Math.random()*panier.size();
         panier.remove(panier.get(index));
+    }
+    
+    private void boycotter()
+    {
+        panier.boycottOrigine((String)(this.jcombo.getSelectedItem()));
     }
     
     private void afficher()
@@ -77,8 +92,11 @@ public class Visu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -87,13 +105,16 @@ public class Visu extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.GridLayout());
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Modifier"));
+        jPanel3.setLayout(new java.awt.GridLayout());
+
         jButton1.setText("+");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
+        jPanel3.add(jButton1);
 
         jButton2.setText("-");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +122,22 @@ public class Visu extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2);
+        jPanel3.add(jButton2);
+
+        jPanel1.add(jPanel3);
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Boycotter"));
+        jPanel4.setLayout(new java.awt.GridLayout());
+
+        jButton3.setText("Supprimer");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton3);
+
+        jPanel1.add(jPanel4);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.SOUTH);
 
@@ -127,6 +163,11 @@ public class Visu extends javax.swing.JFrame {
         retirerFruit();
         afficher();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        boycotter();
+        afficher();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,8 +207,11 @@ public class Visu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
