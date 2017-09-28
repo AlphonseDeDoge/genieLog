@@ -16,6 +16,7 @@ public class Panier {
     
     private int max;
     private List<Orange> fruits;
+    private String exception = "";
     
     public Panier()
     {
@@ -39,12 +40,12 @@ public class Panier {
             }
             else
             {
-                System.out.println("Le Panier est plein !");
+                exception = "Le Panier est plein !";
             }
         }
         else
         {
-            System.out.println("L'objet à ajouter est incorrect !");
+            exception = "L'objet à ajouter est incorrect !";
         }
     }
     
@@ -61,12 +62,12 @@ public class Panier {
             }
             else
             {
-                System.out.println("Le panier est vide !");
+                exception = "Le panier est vide !";
             }
         }
         else
         {
-            System.out.println("L'objet à retirer est incorrect !");
+            exception = "L'objet à retirer est incorrect !";
         }
     }
     
@@ -77,7 +78,12 @@ public class Panier {
     
     public Orange get(int index)
     {
-        return fruits.get(index);
+        return (index >= 0 && index < fruits.size())?fruits.get(index) : new Orange();
+    }
+    
+    public int getMax()
+    {
+        return max;
     }
     
     public void boycottOrigine(String origine)
@@ -89,6 +95,13 @@ public class Panier {
                 fruits.remove(i);   
             }
         }
+    }
+    
+    public String getException()
+    {
+        String tmp = exception;
+        exception = "";
+        return tmp;
     }
     
     @Override

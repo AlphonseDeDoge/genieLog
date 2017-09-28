@@ -23,7 +23,7 @@ public class Orange {
         this.prix = 0.0;
         this.origine = "";
     }
-
+    
     public double getPrix() {
         return prix;
     }
@@ -43,6 +43,6 @@ public class Orange {
     @Override
     public String toString()
     {
-        return "Orange prix : " + prix + " origine : " + origine;
+        return "Orange prix : " + String.format("%.2f", prix) + " origine : " + origine;
     }
 }

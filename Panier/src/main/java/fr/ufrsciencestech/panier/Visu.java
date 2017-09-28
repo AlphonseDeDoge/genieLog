@@ -20,7 +20,8 @@ public class Visu extends javax.swing.JFrame {
 
     public void init()
     {
-        panier = new Panier(1000);
+        this.setSize(800, 600);
+        panier = new Panier(3);
         afficher();
     }
     
@@ -33,7 +34,7 @@ public class Visu extends javax.swing.JFrame {
         export[2] = "Suede";
         export[3] = "Martinique";
         
-        String origin = export[(int)Math.random()*5];
+        String origin = export[(int)(Math.random()*export.length)];
         panier.add(new Orange(price, origin));
         
     }
@@ -46,7 +47,24 @@ public class Visu extends javax.swing.JFrame {
     
     private void afficher()
     {
-        this.jTextArea1.setText(panier.toString());
+        setTitle();
+        setArea();
+    }
+    
+    private void setTitle()
+    {
+        this.setTitle("Panier (" + panier.size() + "/" + panier.getMax() + ")");
+    }
+    
+    private void setArea()
+    {
+        String tmp = "";
+        for(int i=0 ; i<panier.size() ; i++)
+        {
+            tmp += panier.get(i).toString() + "\n";
+        }
+        tmp += panier.getException();
+        this.jTextArea1.setText(tmp);
     }
     
     /**
@@ -67,8 +85,7 @@ public class Visu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new java.awt.GridLayout(1, 2));
-        getContentPane().add(jPanel1, java.awt.BorderLayout.SOUTH);
+        jPanel1.setLayout(new java.awt.GridLayout());
 
         jButton1.setText("+");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +93,7 @@ public class Visu extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, java.awt.BorderLayout.CENTER);
+        jPanel1.add(jButton1);
 
         jButton2.setText("-");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +101,9 @@ public class Visu extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, java.awt.BorderLayout.LINE_END);
+        jPanel1.add(jButton2);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.SOUTH);
 
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -94,7 +113,7 @@ public class Visu extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane1);
 
-        getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
