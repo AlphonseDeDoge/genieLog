@@ -41,8 +41,25 @@ public class Orange {
     }
     
     @Override
+    public boolean equals(Object o)
+    {
+        if(o != null && o instanceof Orange)
+        {
+            Orange or = (Orange) o;
+            return equals(or);
+        }
+        return false;
+    }
+    
+    public boolean equals(Orange o)
+    {
+        return (o != null && this.origine == o.origine && this.prix == o.prix);
+    }
+    
+    @Override
     public String toString()
     {
+        if(prix == 0 && origine.equals("")){ return "";}
         return "Orange prix : " + String.format("%.2f", prix) + " origine : " + origine;
     }
 }

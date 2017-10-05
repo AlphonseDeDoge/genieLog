@@ -49,25 +49,15 @@ public class Panier {
         }
     }
     
-    public void remove(Orange fruit)
+    public void remove()
     {
-        if(fruit != null)
+        if(fruits.size() > 0)
         {
-            if(fruits.size() > 0)
-            {
-                for(int i=(fruits.size()-1) ; i >= 0 ; i--)
-                {
-                    fruits.remove(i);
-                }
-            }
-            else
-            {
-                exception = "Le panier est vide !";
-            }
+            fruits.remove(fruits.size()-1);
         }
         else
         {
-            exception = "L'objet à retirer est incorrect !";
+            exception = "Le panier est vide !";
         }
     }
     
@@ -78,7 +68,7 @@ public class Panier {
     
     public Orange get(int index)
     {
-        return (index >= 0 && index < fruits.size())?fruits.get(index) : new Orange();
+        return (index >= 0 && index < fruits.size()) ? fruits.get(index) : null;
     }
     
     public int getMax()
@@ -107,8 +97,9 @@ public class Panier {
     @Override
     public String toString()
     {
-        String tmp = "Panier(" + size() + "/" + max + ")\n";
-        for(int i=0 ; i<size() ; i++)
+        int size = size();
+        String tmp = (size == 0) ? "Panier vide" : "Panier(" + size + "/" + max + ")\n";
+        for(int i=0 ; i<size ; i++)
         {
             tmp += "\t" + fruits.get(i).toString() + "\n";
         }

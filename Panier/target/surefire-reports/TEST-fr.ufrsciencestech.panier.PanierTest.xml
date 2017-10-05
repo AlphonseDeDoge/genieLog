@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="fr.ufrsciencestech.panier.AppTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="14" failures="0" name="fr.ufrsciencestech.panier.PanierTest" time="0.002" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/local/jdk1.8.0_144/jre/lib/amd64"/>
@@ -63,5 +63,18 @@
     <property name="project.build.outputDirectory" value="/home2/nl773507/NetBeansProjects/genieLog/Panier/target/generated-classes/cobertura"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="fr.ufrsciencestech.panier.AppTest" name="testApp" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.PanierTest" name="testAdd" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.PanierTest" name="testRemove" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.PanierTest" name="testSize" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.PanierTest" name="testGet" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.PanierTest" name="testGetMax" time="0.001"/>
+  <testcase classname="fr.ufrsciencestech.panier.PanierTest" name="testBoycottOrigine" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.PanierTest" name="testGetException" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.PanierTest" name="testToString" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.PanierTest" name="testAdd2" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.PanierTest" name="testAdd3" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.PanierTest" name="testAdd4" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.PanierTest" name="testRemove2" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.PanierTest" name="testBoycottOrigine2" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.PanierTest" name="testToString2" time="0"/>
 </testsuite>

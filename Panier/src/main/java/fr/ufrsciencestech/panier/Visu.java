@@ -27,12 +27,8 @@ public class Visu extends javax.swing.JFrame {
     public void init()
     {
         this.setSize(800, 600);
-        panier = new Panier(3);
-        export = new String[4];
-        export[0] = "France";
-        export[1] = "Espagne";
-        export[2] = "Suede";
-        export[3] = "Martinique";
+        panier = new Panier(10);
+        Controller.initExport(this, export);
         for(int i=0 ; i<export.length ; i++)
         {
             this.jcombo.addItem(export[i]);
@@ -40,26 +36,9 @@ public class Visu extends javax.swing.JFrame {
         afficher();
     }
     
-    private void genererFruit()
-    {
-        double price = (double)Math.random()*10;
-        
-        String origin = export[(int)(Math.random()*export.length)];
-        panier.add(new Orange(price, origin));
-        
-    }
-    
-    private void retirerFruit()
-    {
-        int index = (int)Math.random()*panier.size();
-        panier.remove(panier.get(index));
-    }
-    
-    private void boycotter()
-    {
-        panier.boycottOrigine((String)(this.jcombo.getSelectedItem()));
-    }
-    
+    /*
+    * AFFICHAGE
+    */
     private void afficher()
     {
         setTitle();
@@ -80,6 +59,22 @@ public class Visu extends javax.swing.JFrame {
         }
         tmp += panier.getException();
         this.jTextArea1.setText(tmp);
+    }
+
+    public String[] getExport() {
+        return export;
+    }
+
+    public void setExport(String[] export) {
+        this.export = export;
+    }
+
+    public JComboBox getJcombo() {
+        return jcombo;
+    }
+
+    public void setJcombo(JComboBox jcombo) {
+        this.jcombo = jcombo;
     }
     
     /**
@@ -155,17 +150,17 @@ public class Visu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        genererFruit();
+        Controller.genererFruit(panier, export);
         afficher();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        retirerFruit();
+        Controller.retirerFruit(panier);
         afficher();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        boycotter();
+        Controller.boycotter(this, panier);
         afficher();
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -197,11 +192,12 @@ public class Visu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Visu().setVisible(true);
+        java.awt.EventQueue.invokeLater(
+            new Runnable() 
+            {
+                public void run() { new Visu().setVisible(true); }
             }
-        });
+        );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

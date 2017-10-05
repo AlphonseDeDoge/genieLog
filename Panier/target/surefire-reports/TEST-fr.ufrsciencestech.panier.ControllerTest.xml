@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="fr.ufrsciencestech.panier.AppTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="fr.ufrsciencestech.panier.ControllerTest" time="0.002" errors="3" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/local/jdk1.8.0_144/jre/lib/amd64"/>
@@ -63,5 +63,28 @@
     <property name="project.build.outputDirectory" value="/home2/nl773507/NetBeansProjects/genieLog/Panier/target/generated-classes/cobertura"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="fr.ufrsciencestech.panier.AppTest" name="testApp" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.ControllerTest" name="testGenererFruit" time="0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at fr.ufrsciencestech.panier.Controller.genererFruit(Controller.java:36)
+	at fr.ufrsciencestech.panier.ControllerTest.testGenererFruit(ControllerTest.java:37)
+</error>
+    <system-out>genererFruit
+</system-out>
+  </testcase>
+  <testcase classname="fr.ufrsciencestech.panier.ControllerTest" name="testRetirerFruit" time="0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at fr.ufrsciencestech.panier.Controller.retirerFruit(Controller.java:43)
+	at fr.ufrsciencestech.panier.ControllerTest.testRetirerFruit(ControllerTest.java:46)
+</error>
+    <system-out>retirerFruit
+</system-out>
+  </testcase>
+  <testcase classname="fr.ufrsciencestech.panier.ControllerTest" name="testBoycotter" time="0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at fr.ufrsciencestech.panier.Controller.boycotter(Controller.java:48)
+	at fr.ufrsciencestech.panier.ControllerTest.testBoycotter(ControllerTest.java:56)
+</error>
+    <system-out>boycotter
+</system-out>
+  </testcase>
 </testsuite>
