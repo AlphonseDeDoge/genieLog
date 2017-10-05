@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: fr.ufrsciencestech.panier.AppTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+>>>>>>> 2e87c51ad406ddd73749ff3e28dae43da947f8d4

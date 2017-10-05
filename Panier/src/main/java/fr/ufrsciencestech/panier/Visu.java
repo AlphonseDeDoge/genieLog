@@ -27,18 +27,24 @@ public class Visu extends javax.swing.JFrame {
     public void init()
     {
         this.setSize(800, 600);
+
         panier = new Panier(10);
         Controller.initExport(this, export);
+
+        panier = new Panier(3);
+        export = new String[4];
+        export[0] = "France";
+        export[1] = "Espagne";
+        export[2] = "Suede";
+        export[3] = "Martinique";
+
         for(int i=0 ; i<export.length ; i++)
         {
             this.jcombo.addItem(export[i]);
         }
         afficher();
     }
-    
-    /*
-    * AFFICHAGE
-    */
+
     private void afficher()
     {
         setTitle();
