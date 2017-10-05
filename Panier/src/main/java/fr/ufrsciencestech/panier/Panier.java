@@ -78,12 +78,19 @@ public class Panier {
     
     public void boycottOrigine(String origine)
     {
-        for(int i=(fruits.size()-1) ; i >= 0 ; i--)
+        if(fruits.size() > 0)
         {
-            if( origine.toLowerCase().equals(fruits.get(i).getOrigine().toLowerCase()) )
+            for(int i=(fruits.size()-1) ; i >= 0 ; i--)
             {
-                fruits.remove(i);   
+                if( origine.toLowerCase().equals(fruits.get(i).getOrigine().toLowerCase()) )
+                {
+                    fruits.remove(i);   
+                }
             }
+        }
+        else
+        {
+            exception = "Le panier est vide !";
         }
     }
     

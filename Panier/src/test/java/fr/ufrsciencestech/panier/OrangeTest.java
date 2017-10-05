@@ -132,7 +132,6 @@ public class OrangeTest extends TestCase {
     public void testToString2() {
         System.out.println("toString2");
         Orange instance = new Orange(0.00, "France");
-        System.out.println(instance.toString());
         String expResult = "Orange prix : 0,00 origine : France";
         String result = instance.toString();
         assertEquals(expResult, result);

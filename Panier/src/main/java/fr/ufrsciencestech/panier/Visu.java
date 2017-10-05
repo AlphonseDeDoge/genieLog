@@ -13,60 +13,66 @@ import javax.swing.JComboBox;
  */
 public class Visu extends javax.swing.JFrame {
 
+    private Controller controller;
+    
     private Panier panier;
     private String[] export;
     private JComboBox jcombo;
     
-    public Visu() {
+    public Visu() 
+    {
         initComponents();
         jcombo = new JComboBox();
         this.jPanel4.add(jcombo);
-        init();
-    }
-
-    public void init()
-    {
+        
         this.setSize(800, 600);
-
-        panier = new Panier(10);
-        Controller.initExport(this, export);
-
-        panier = new Panier(3);
-        export = new String[4];
-        export[0] = "France";
-        export[1] = "Espagne";
-        export[2] = "Suede";
-        export[3] = "Martinique";
-
-        for(int i=0 ; i<export.length ; i++)
-        {
-            this.jcombo.addItem(export[i]);
-        }
-        afficher();
+        update();
     }
 
-    private void afficher()
+    public void update()
     {
         setTitle();
         setArea();
+        setJcombo();
     }
     
     private void setTitle()
     {
-        this.setTitle("Panier (" + panier.size() + "/" + panier.getMax() + ")");
+        if(panier != null)
+        {
+            this.setTitle("Panier (" + panier.size() + "/" + panier.getMax() + ")");
+        }
+        else
+        {
+            this.setTitle("Panier inexistant");
+        }
     }
     
     private void setArea()
     {
-        String tmp = "";
-        for(int i=0 ; i<panier.size() ; i++)
+        if(panier != null)
         {
-            tmp += panier.get(i).toString() + "\n";
+            String tmp = "";
+            for(int i=0 ; i<panier.size() ; i++)
+            {
+                tmp += panier.get(i).toString() + "\n";
+            }
+            tmp += panier.getException();
+            this.jTextArea1.setText(tmp);
         }
-        tmp += panier.getException();
-        this.jTextArea1.setText(tmp);
     }
 
+    private void setJcombo()
+    {
+        if(export != null)
+        {
+            for(int i=0 ; i<export.length ; i++)
+            {
+                this.jcombo.addItem(export[i]);
+            }
+        }
+    }
+    
     public String[] getExport() {
         return export;
     }
@@ -156,54 +162,43 @@ public class Visu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Controller.genererFruit(panier, export);
-        afficher();
+        if(controller != null)
+        {
+            controller.genererFruit();
+        }
+        update();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Controller.retirerFruit(panier);
-        afficher();
+        if(controller != null)
+        {
+            controller.retirerFruit();
+        }
+        update();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Controller.boycotter(this, panier);
-        afficher();
+        if(controller != null)
+        {
+            controller.boycotter();
+        }
+        update();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Visu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Visu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Visu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Visu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    public Panier getPanier() {
+        return panier;
+    }
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(
-            new Runnable() 
-            {
-                public void run() { new Visu().setVisible(true); }
-            }
-        );
+    public void setPanier(Panier panier) {
+        this.panier = panier;
+    }
+
+    public Controller getController() {
+        return controller;
+    }
+
+    public void setController(Controller controller) {
+        this.controller = controller;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

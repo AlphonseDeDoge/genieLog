@@ -11,42 +11,71 @@ package fr.ufrsciencestech.panier;
  */
 public class Controller {
     
+    private Visu v;
+    private Panier p;
+    private String[] ex;
+    
     public Controller()
     {
-        
+        v = null;
+        p = null;
+        ex = null;
     }
     
     /*
     * GENERATION CALCULUS
     */
-    public static void initExport(Visu v, String[] ex)
-    {
-        String[] export = new String[4];
-        export[0] = "France";
-        export[1] = "Espagne";
-        export[2] = "Suede";
-        export[3] = "Martinique";
-        v.setExport(export);
-    }
     
-    public static void genererFruit(Panier p, String[] export)
+    public void genererFruit()
     {
-        double price = (double)Math.random()*10;
-        
-        String origin = export[(int)(Math.random()*export.length)];
-        p.add(new Orange(price, origin));
+        if(ex != null && p!= null)
+        {
+            double price = (double)Math.random()*10;
+            String origin = ex[(int)(Math.random()*ex.length)];
+            
+            p.add(new Orange(price, origin));
+        }
         
     }
     
-    public static void retirerFruit(Panier p)
+    public void retirerFruit()
     {
-        p.remove();
+        if(p != null)
+        {
+            p.remove();
+        }
     }
     
-    public static void boycotter(Visu v, Panier p)
+    public void boycotter()
     {
-        p.boycottOrigine((String)(v.getJcombo().getSelectedItem()));
+        if(p != null && v != null && v.getJcombo().getItemCount() > 0)
+        {
+            p.boycottOrigine((String)(v.getJcombo().getSelectedItem()));
+        }
     }
-    
+
+    public Visu getV() {
+        return v;
+    }
+
+    public void setV(Visu v) {
+        this.v = v;
+    }
+
+    public Panier getP() {
+        return p;
+    }
+
+    public void setPanier(Panier p) {
+        this.p = p;
+    }
+
+    public String[] getEx() {
+        return ex;
+    }
+
+    public void setExport(String[] ex) {
+        this.ex = ex;
+    }
     
 }

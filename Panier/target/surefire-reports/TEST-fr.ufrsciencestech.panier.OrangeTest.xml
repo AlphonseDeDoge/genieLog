@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="fr.ufrsciencestech.panier.OrangeTest" time="0.012" errors="0" skipped="0">
+<testsuite tests="10" failures="0" name="fr.ufrsciencestech.panier.OrangeTest" time="0.003" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/local/jdk1.8.0_144/jre/lib/amd64"/>
@@ -63,8 +63,8 @@
     <property name="project.build.outputDirectory" value="/home2/nl773507/NetBeansProjects/genieLog/Panier/target/generated-classes/cobertura"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="fr.ufrsciencestech.panier.OrangeTest" name="testGetPrix" time="0"/>
   <testcase classname="fr.ufrsciencestech.panier.OrangeTest" name="testSetPrix" time="0"/>
+  <testcase classname="fr.ufrsciencestech.panier.OrangeTest" name="testGetPrix" time="0"/>
   <testcase classname="fr.ufrsciencestech.panier.OrangeTest" name="testGetOrigine" time="0"/>
   <testcase classname="fr.ufrsciencestech.panier.OrangeTest" name="testSetOrigine" time="0"/>
   <testcase classname="fr.ufrsciencestech.panier.OrangeTest" name="testEquals1" time="0"/>
@@ -72,5 +72,5 @@
   <testcase classname="fr.ufrsciencestech.panier.OrangeTest" name="testEquals3" time="0"/>
   <testcase classname="fr.ufrsciencestech.panier.OrangeTest" name="testEquals4" time="0"/>
   <testcase classname="fr.ufrsciencestech.panier.OrangeTest" name="testToString1" time="0"/>
-  <testcase classname="fr.ufrsciencestech.panier.OrangeTest" name="testToString2" time="0.01"/>
+  <testcase classname="fr.ufrsciencestech.panier.OrangeTest" name="testToString2" time="0.002"/>
 </testsuite>

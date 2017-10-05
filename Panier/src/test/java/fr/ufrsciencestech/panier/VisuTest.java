@@ -5,6 +5,7 @@
  */
 package fr.ufrsciencestech.panier;
 
+import javax.swing.JComboBox;
 import junit.framework.TestCase;
 
 /**
@@ -28,30 +29,96 @@ public class VisuTest extends TestCase {
     }
 
     /**
-     * Test of init method, of class Visu.
+     * Test of update method, of class Visu.
      */
-    public void testInit() {
-        System.out.println("init");
+    public void testUpdate() {
+        System.out.println("update");
         Visu instance = new Visu();
-        instance.init();
+        instance.update();
     }
 
     /**
-     * Test of main method, of class Visu.
+     * Test of getExport method, of class Visu.
      */
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        Visu.main(args);
-    }
-    
-    /**
-     * Test of init method, of class Visu.
-     */
-    public void testInit2() {
-        System.out.println("init2");
+    public void testGetExport() {
+        System.out.println("getExport");
         Visu instance = new Visu();
-        instance.setVisible(true);
+        String[] expResult = null;
+        String[] result = instance.getExport();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setExport method, of class Visu.
+     */
+    public void testSetExport() {
+        System.out.println("setExport");
+        String[] export = null;
+        Visu instance = new Visu();
+        instance.setExport(export);
+    }
+
+    /**
+     * Test of getJcombo method, of class Visu.
+     */
+    public void testGetJcombo() {
+        System.out.println("getJcombo");
+        Visu instance = new Visu();
+        JComboBox expResult = null;
+        JComboBox result = instance.getJcombo();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setJcombo method, of class Visu.
+     */
+    public void testSetJcombo() {
+        System.out.println("setJcombo");
+        JComboBox jcombo = null;
+        Visu instance = new Visu();
+        instance.setJcombo(jcombo);
+    }
+
+    /**
+     * Test of getPanier method, of class Visu.
+     */
+    public void testGetPanier() {
+        System.out.println("getPanier");
+        Visu instance = new Visu();
+        Panier expResult = null;
+        Panier result = instance.getPanier();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setPanier method, of class Visu.
+     */
+    public void testSetPanier() {
+        System.out.println("setPanier");
+        Panier panier = null;
+        Visu instance = new Visu();
+        instance.setPanier(panier);
+    }
+
+    /**
+     * Test of getController method, of class Visu.
+     */
+    public void testGetController() {
+        System.out.println("getController");
+        Visu instance = new Visu();
+        Controller expResult = null;
+        Controller result = instance.getController();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setController method, of class Visu.
+     */
+    public void testSetController() {
+        System.out.println("setController");
+        Controller controller = null;
+        Visu instance = new Visu();
+        instance.setController(controller);
     }
     
 }

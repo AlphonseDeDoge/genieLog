@@ -1,16 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: fr.ufrsciencestech.panier.ControllerTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
-testGenererFruit(fr.ufrsciencestech.panier.ControllerTest)  Time elapsed: 0 sec  <<< ERROR!
-java.lang.NullPointerException
-	at fr.ufrsciencestech.panier.Controller.genererFruit(Controller.java:36)
-	at fr.ufrsciencestech.panier.ControllerTest.testGenererFruit(ControllerTest.java:37)
-testRetirerFruit(fr.ufrsciencestech.panier.ControllerTest)  Time elapsed: 0 sec  <<< ERROR!
-java.lang.NullPointerException
-	at fr.ufrsciencestech.panier.Controller.retirerFruit(Controller.java:43)
-	at fr.ufrsciencestech.panier.ControllerTest.testRetirerFruit(ControllerTest.java:46)
-testBoycotter(fr.ufrsciencestech.panier.ControllerTest)  Time elapsed: 0 sec  <<< ERROR!
-java.lang.NullPointerException
-	at fr.ufrsciencestech.panier.Controller.boycotter(Controller.java:48)
-	at fr.ufrsciencestech.panier.ControllerTest.testBoycotter(ControllerTest.java:56)
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
