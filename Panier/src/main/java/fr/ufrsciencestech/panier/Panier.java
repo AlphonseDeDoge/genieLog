@@ -15,22 +15,22 @@ import java.util.List;
 public class Panier {
     
     private int max;
-    private List<Orange> fruits;
+    private List<Fruit> fruits;
     private String exception = "";
     
     public Panier()
     {
         max = 0;
-        fruits = new ArrayList<Orange>();
+        fruits = new ArrayList<Fruit>();
     }
     
     public Panier(int max)
     {
         this.max = max;
-        fruits = new ArrayList<Orange>();
+        fruits = new ArrayList<Fruit>();
     }
     
-    public void add(Orange fruit)
+    public void add(Fruit fruit)
     {
         if(fruit != null)
         {
@@ -66,7 +66,7 @@ public class Panier {
         return fruits.size();
     }
     
-    public Orange get(int index)
+    public IFruit get(int index)
     {
         return (index >= 0 && index < fruits.size()) ? fruits.get(index) : null;
     }

@@ -87,8 +87,8 @@ public class ControllerTest extends TestCase {
         instance.setPanier(new Panier(1));
         instance.getP().add(new Orange(0.5, "France"));
         instance.setV(new Visu());
-        instance.getV().getJcombo().addItem("France");
-        instance.getV().getJcombo().setSelectedIndex(0);
+        instance.getV().getJcomboBoycotter().addItem("France");
+        instance.getV().getJcomboBoycotter().setSelectedIndex(0);
         instance.boycotter();
     }
     

@@ -20,11 +20,13 @@ public class Main {
         
         Panier panier = new Panier(10);
         
-        String[] export = new String[4];
+        String[] export = new String[5];
         export[0] = "France";
         export[1] = "Espagne";
         export[2] = "Suede";
         export[3] = "Martinique";
+        export[4] = "Afrique";
+
         
         control.setPanier(panier);
         control.setExport(export);

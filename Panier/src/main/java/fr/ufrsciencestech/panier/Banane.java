@@ -9,14 +9,14 @@ package fr.ufrsciencestech.panier;
  *
  * @author nl773507
  */
-public class Orange extends Fruit{
+public class Banane extends Fruit{
     
-    public Orange(double prix, String origine){
+    public Banane(double prix, String origine){
         this.prix = prix;
         this.origine = origine;
     }
     
-    public Orange(){
+    public Banane(){
         this.prix = 0.0;
         this.origine = "";
     }
@@ -24,6 +24,6 @@ public class Orange extends Fruit{
     @Override
     public boolean isSeedless() 
     {
-        return true;
+        return false;
     }
 }

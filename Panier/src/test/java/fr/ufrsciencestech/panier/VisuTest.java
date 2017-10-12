@@ -59,13 +59,13 @@ public class VisuTest extends TestCase {
     }
 
     /**
-     * Test of getJcombo method, of class Visu.
+     * Test of getJcomboBoycotter method, of class Visu.
      */
     public void testGetJcombo() {
         System.out.println("getJcombo");
         Visu instance = new Visu();
         JComboBox expResult = null;
-        JComboBox result = instance.getJcombo();
+        JComboBox result = instance.getJcomboBoycotter();
         assertEquals(expResult, result);
     }
 

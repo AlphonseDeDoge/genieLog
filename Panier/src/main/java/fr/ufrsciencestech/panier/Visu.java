@@ -17,13 +17,13 @@ public class Visu extends javax.swing.JFrame {
     
     private Panier panier;
     private String[] export;
-    private JComboBox jcombo;
+    //private JComboBox jcombo;
     
     public Visu() 
     {
         initComponents();
-        jcombo = new JComboBox();
-        this.jPanel4.add(jcombo);
+        //jcombo = new JComboBox();
+        //this.jPanel4.add(jcombo);
         
         this.setSize(800, 600);
         update();
@@ -33,7 +33,9 @@ public class Visu extends javax.swing.JFrame {
     {
         setTitle();
         setArea();
-        setJcombo();
+        setJcombo(this.jComboBox1);
+        setJcombo(this.jComboBox2);
+
     }
     
     private void setTitle()
@@ -62,13 +64,13 @@ public class Visu extends javax.swing.JFrame {
         }
     }
 
-    private void setJcombo()
+    private void setJcombo(JComboBox jb)
     {
-        if(export != null)
+        if(export != null && jb.getItemCount() == 0)
         {
             for(int i=0 ; i<export.length ; i++)
             {
-                this.jcombo.addItem(export[i]);
+                jb.addItem(export[i]);
             }
         }
     }
@@ -81,12 +83,12 @@ public class Visu extends javax.swing.JFrame {
         this.export = export;
     }
 
-    public JComboBox getJcombo() {
-        return jcombo;
+    public JComboBox getJcomboBoycotter() {
+        return this.jComboBox1;
     }
-
-    public void setJcombo(JComboBox jcombo) {
-        this.jcombo = jcombo;
+    
+    public JComboBox getJcomboAjouter() {
+        return this.jComboBox2;
     }
     
     /**
@@ -98,55 +100,24 @@ public class Visu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton4 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setLayout(new java.awt.GridLayout());
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Modifier"));
-        jPanel3.setLayout(new java.awt.GridLayout());
-
-        jButton1.setText("+");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton1);
-
-        jButton2.setText("-");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton2);
-
-        jPanel1.add(jPanel3);
-
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Boycotter"));
-        jPanel4.setLayout(new java.awt.GridLayout());
-
-        jButton3.setText("Supprimer");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton3);
-
-        jPanel1.add(jPanel4);
-
-        getContentPane().add(jPanel1, java.awt.BorderLayout.SOUTH);
 
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -157,6 +128,71 @@ public class Visu extends javax.swing.JFrame {
         jPanel2.add(jScrollPane1);
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Modifier"));
+        jPanel3.setLayout(new java.awt.GridLayout(2, 0));
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Aleatoire"));
+        jPanel5.setLayout(new java.awt.GridLayout(1, 2));
+
+        jButton1.setText("+");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton1);
+
+        jButton2.setText("-");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton2);
+
+        jPanel3.add(jPanel5);
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Choix"));
+        jPanel6.setLayout(new java.awt.GridLayout(1, 1));
+
+        jLabel1.setText("Prix");
+        jPanel6.add(jLabel1);
+
+        jTextField1.setColumns(4);
+        jPanel6.add(jTextField1);
+
+        jLabel2.setText("Origine");
+        jPanel6.add(jLabel2);
+
+        jPanel6.add(jComboBox2);
+
+        jButton4.setText("Générer");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton4);
+
+        jPanel3.add(jPanel6);
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Boycotter"));
+        jPanel4.setLayout(new java.awt.GridLayout(1, 2));
+
+        jButton3.setText("Supprimer");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton3);
+
+        jPanel4.add(jComboBox1);
+
+        jPanel3.add(jPanel4);
+
+        getContentPane().add(jPanel3, java.awt.BorderLayout.SOUTH);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -180,10 +216,18 @@ public class Visu extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(controller != null)
         {
-            controller.boycotter();
+            controller.boycotter(this.jComboBox1);
         }
         update();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if(controller != null)
+        {
+            controller.generer(this.jTextField1, this.jComboBox1);
+        }
+        update();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     public Panier getPanier() {
         return panier;
@@ -205,11 +249,18 @@ public class Visu extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
